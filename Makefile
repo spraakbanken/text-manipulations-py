@@ -5,7 +5,7 @@ help:
 	@echo "usage:"
 
 PLATFORM := ${shell uname -o}
-PROJECT_NAME := "text_manipulations"
+PROJECT_NAME := text_manipulations
 
 ifeq (${VIRTUAL_ENV},)
   INVENV = pdm run

@@ -1,36 +1,26 @@
+[project]
+name = "text-manipulations"
+version = "0.1.0"
+description = "Tools to manipulate text"
+authors = [
+    {name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se"},
+]
+dependencies = []
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+[project.optional-dependencies]
 
 [tool.pdm]
-[tool.pdm.build]
-includes = ["text_manipulations"]
-
 [tool.pdm.dev-dependencies]
 dev = [
+    "black>=22.8.0",
+    "pytest>=7.1.3",
     "pytest-cov>=3.0.0",
     "pylint>=2.15.3",
+    "mypy>=0.981",
 ]
+
 [build-system]
 requires = ["pdm-pep517>=1.0.0"]
 build-backend = "pdm.pep517.api"
-
-
-[project]
-# PEP 621 project metadata
-# See https://www.python.org/dev/peps/pep-0621/
-authors = [
-    {name = "Språkbanken Text", email = "sb-info@spraakbanken.gu.se"},
-    {name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se"},
-]
-license = {text = "MIT"}
-requires-python = ">=3.10,<4.0"
-dependencies = []
-name = "text-manipulations"
-version = "0.1.0"
-description = "Simple functions to manipulate text"
-readme = "README.md"
-
-[project.urls]
-
-[project.group.dev.dependencies]
-pytest = "^7.1.3"
-
-[project.optional-dependencies]
