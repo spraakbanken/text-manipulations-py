@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+    tags-ignore:
+      - v*
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.task.name }} py-${{ matrix.python-version }} ${{ matrix.json-lib }} (${{ matrix.os }})
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10", "3.11-dev"]
+        task:
+          - name: Type check
+            run: make type-check
+            report_coverage: false
+          - name: Lint
+            run: make lint
+            report_coverage: false
+          - name: Check style
+            run: make check-fmt
+            report_coverage: false
+          - name: Run tests
+            run: make run-tests-w-coverage
+            report_coverage: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pdm-project/setup-pdm@main
+      - name: Setup Python & PDM
+        with:
+          python-version: ${{ matrix.python-version }}  # Version range or exact version of a Python version to use, the same as actions/setup-python
+      - name: Install dependencies
+        run: make dev
+      - name: ${{ matrix.task.name }}
+        run: ${{ matrix.task.run }}
+      - name: Upload coverage to Codecov
+        if: matrix.task.report_coverage
+        uses: codecov/codecov-action@v2
+        with:
+          # directory: ./coverage/reports/
+          # env_vars: OS,PYTHON
+          fail_ci_if_error: true
+          # files: ./coverage1.xml,./coverage2.xml
+          # flags: unittests
+          # name: codecov-umbrella
+          verbose: true

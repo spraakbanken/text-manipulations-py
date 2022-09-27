@@ -1,3 +1,4 @@
+"""Tools for text manipulation."""
 import unicodedata
 
 

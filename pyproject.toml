@@ -2,6 +2,12 @@
 [tool.pdm]
 [tool.pdm.build]
 includes = ["text_manipulations"]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest-cov>=3.0.0",
+    "pylint>=2.15.3",
+]
 [build-system]
 requires = ["pdm-pep517>=1.0.0"]
 build-backend = "pdm.pep517.api"
@@ -25,3 +31,5 @@ readme = "README.md"
 
 [project.group.dev.dependencies]
 pytest = "^7.1.3"
+
+[project.optional-dependencies]
