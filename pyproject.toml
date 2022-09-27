@@ -1,0 +1,27 @@
+
+[tool.pdm]
+[tool.pdm.build]
+includes = ["text_manipulations"]
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+authors = [
+    {name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se"},
+]
+license = {text = "MIT"}
+requires-python = ">=3.10,<4.0"
+dependencies = []
+name = "text-manipulations"
+version = "0.1.0"
+description = "Simple functions to manipulate text"
+readme = "README.md"
+
+[project.urls]
+
+[project.group.dev.dependencies]
+pytest = "^7.1.3"
