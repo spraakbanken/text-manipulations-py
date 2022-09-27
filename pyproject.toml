@@ -17,6 +17,7 @@ build-backend = "pdm.pep517.api"
 # PEP 621 project metadata
 # See https://www.python.org/dev/peps/pep-0621/
 authors = [
+    {name = "Språkbanken Text", email = "sb-info@spraakbanken.gu.se"},
     {name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se"},
 ]
 license = {text = "MIT"}
