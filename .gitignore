@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# poetry lock file
+poetry.lock
+
+# pdm lock file
+pdm.lock
+
+# pdm local configuration
+.pdm.toml
