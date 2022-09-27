@@ -2,8 +2,6 @@ name: Build & Publish
 
 on:
   push:
-    branches:
-      - main
     tags:
       - v*
 
@@ -16,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: [3.10"]
+        python-version: ["3.10"]
         task:
           - name: Typecheck
             run: make type-check
